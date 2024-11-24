@@ -14,7 +14,7 @@ import {
 // Registra los componentes que vas a usar
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend);
 
-const StockChart = ({ symbol }) => {
+const StockChart = ({ symbol, apiKey }) => {
     const [chartData, setChartData] = useState({
         datasets: [{
             label: `${symbol} Prices`,
@@ -30,7 +30,7 @@ const StockChart = ({ symbol }) => {
             try {
                 const response = await axios.get(`https://api.marketstack.com/v1/eod`, {
                     params: {
-                        access_key: '065846acf06f90351857195ae3beea24', // Reemplaza con tu clave API
+                        access_key: apiKey, // Reemplaza con tu clave API
                         symbols: symbol,
                         limit: 30,
                         sort: 'desc'
@@ -59,7 +59,7 @@ const StockChart = ({ symbol }) => {
         };
 
         fetchStockData();
-    }, [symbol]);
+    }, [symbol, apiKey]);
 
     return (
         <div>

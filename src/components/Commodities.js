@@ -50,13 +50,13 @@ const Commodities = ({ apiKey }) => {
                 <div className="commodity">
                     <h3>Oro</h3>
                     <p>Precio: ${commodities.gold ? parseFloat(commodities.gold).toFixed(2) : "N/A"}</p>
-                    <StockChart symbol="AU" />
+                    <StockChart symbol="AU" apiKey={apiKey} />
                 </div>
 
                 <div className="commodity">
                     <h3>Petróleo (WTI)</h3>
                     <p>Precio: ${commodities.oil ? parseFloat(commodities.oil).toFixed(2) : "N/A"}</p>
-                    <StockChart symbol="WTI" />
+                    <StockChart symbol="WTI" apiKey={apiKey} />
                 </div>
             </div>
         </section>
