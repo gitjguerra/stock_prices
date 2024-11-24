@@ -57,7 +57,7 @@ function App() {
                         onChange={handleSearch}
                         value={searchTerm}
                     />
-                    
+                    <h2>{' '}</h2>
                     {/* Mostrar lista de criptomonedas */}
                     <CryptoList coins={coins} />
 
