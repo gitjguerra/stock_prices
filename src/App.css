@@ -1,38 +1,85 @@
 .App {
+  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white; /* Fondo blanco */
+}
+
+header {
   text-align: center;
+  margin-bottom: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+  width: 100px; /* Ajusta el tamaño según sea necesario */
+  height: auto;
+  position: absolute; /* Para posicionarlo en la parte superior izquierda */
+  top: 20px; /* Ajusta según sea necesario */
+  left: 20px; /* Ajusta según sea necesario */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  color: #333;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
 }
 
-.App-link {
-  color: #61dafb;
+input[type="text"] {
+  width: calc(70% - 10px); /* Ajusta el ancho */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+main {
+  margin-top: 20px; /* Espacio superior */
+}
+
+/* Estilo para la sección de commodities */
+.commodities-section,
+.coins-section {
+    margin-bottom: 20px;
+    border: 2px solid olive; /* Borde verde oliva */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    background-color: #f9f9f9; /* Fondo ligeramente gris para diferenciar */
+}
+
+h2 {
+    color: #333; /* Color del texto del título */
+    margin-bottom: 10px; /* Espacio inferior para el título */
+}
+
+/* Estilo para la lista de commodities y criptomonedas */
+.commodities-list,
+.coins-list {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos horizontalmente */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten a múltiples líneas si es necesario */
+    gap: 10px; /* Espacio entre elementos */
+}
+
+/* Estilo para cada commodity y criptomoneda */
+.commodity,
+.price-section {
+    border: 1px solid olive; /* Borde verde oliva */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno aumentado para mejor presentación */
+    margin-bottom: 10px; /* Espacio inferior entre elementos */
+    text-align: center;
+    flex-basis: calc(30% - 10px); /* Ajusta el ancho para que sean cuadrados y ocupen hasta tres por fila */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil para un efecto de elevación */
+}
+
+/* Estilos para el footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
 }
