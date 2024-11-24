@@ -27,11 +27,23 @@ function App() {
     useEffect(() => {
         async function loadConfig() {
             try {
-                const response = await fetch('./config.json'); // Asegúrate de que este archivo exista en tu carpeta public
-                const data = await response.json();
-                setApiKey(data.apiKey);
+                // Primero, intenta obtener la API key desde la variable de entorno
+                const apiKeyFromEnv = process.env.API_KEY;
+                
+                if (apiKeyFromEnv) {
+                    setApiKey(apiKeyFromEnv);
+                } else {
+                    // Si la variable de entorno no está definida, intenta cargar el archivo
+                    const response = await fetch('./config.json');
+                    if (!response.ok) {
+                        throw new Error('No se encontró el archivo config.json o hubo un error al cargarlo.');
+                    }
+                    const data = await response.json();
+                    setApiKey(data.apiKey);
+                }
             } catch (error) {
-                console.error('Error al cargar el archivo de configuración:', error);
+                console.error('Error al cargar la API key:', error);
+                setApiKey(null); // O cualquier valor predeterminado que sea apropiado para tu caso de uso
             }
         }
         loadConfig();
