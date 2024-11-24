@@ -10,7 +10,7 @@ const Commodities = ({ apiKey }) => {
 
         async function fetchCommodities() {
             try {
-                const goldResponse = await axios.get(`http://api.marketstack.com/v1/eod`, {
+                const goldResponse = await axios.get(`https://api.marketstack.com/v1/eod`, {
                     params: {
                         access_key: apiKey,
                         symbols: 'AU',
@@ -19,7 +19,7 @@ const Commodities = ({ apiKey }) => {
                     }
                 });
 
-                const oilResponse = await axios.get(`http://api.marketstack.com/v1/eod`, {
+                const oilResponse = await axios.get(`https://api.marketstack.com/v1/eod`, {
                     params: {
                         access_key: apiKey,
                         symbols: 'WTI',

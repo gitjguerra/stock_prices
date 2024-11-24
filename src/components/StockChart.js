@@ -28,7 +28,7 @@ const StockChart = ({ symbol }) => {
     useEffect(() => {
         const fetchStockData = async () => {
             try {
-                const response = await axios.get(`http://api.marketstack.com/v1/eod`, {
+                const response = await axios.get(`https://api.marketstack.com/v1/eod`, {
                     params: {
                         access_key: '065846acf06f90351857195ae3beea24', // Reemplaza con tu clave API
                         symbols: symbol,
