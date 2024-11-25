@@ -36,13 +36,13 @@ const StockChart = ({ symbol, apiKey }) => {
                         sort: 'desc'
                     }
                 });
-
+    
                 if (response.data.data && response.data.data.length > 0) {
                     const prices = response.data.data.map(item => ({
                         x: item.date,
                         y: item.close
                     }));
-
+    
                     setChartData(prevData => ({
                         ...prevData,
                         datasets: [{
@@ -57,14 +57,13 @@ const StockChart = ({ symbol, apiKey }) => {
                 console.error('Error fetching stock data:', error);
             }
         };
-
+    
         fetchStockData();
     }, [symbol, apiKey]);
-
+    
     return (
         <div>
-            <h2>{symbol} Gráfico de Precio</h2>
-            <div style={{ width: '90%', height: '200px' }}> {/* Ajusta el ancho y alto aquí */}
+            <div style={{ width: '50%', height: '100px' }}> {/* Ajusta el ancho y alto aquí */}
                 <Line data={chartData} options={{ responsive: true }} />
             </div>
         </div>

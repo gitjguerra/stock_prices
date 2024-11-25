@@ -14,26 +14,21 @@ function App() {
 
     const { coins, totalCoins } = CryptoPrices(page, pageSize, searchTerm);
 
-    // Calcular el número total de páginas basado en el total de criptomonedas filtradas
     const totalPages = Math.ceil(totalCoins / pageSize);
 
     const handleSearch = (event) => {
         const term = event.target.value.toLowerCase();
         setSearchTerm(term);
-        setPage(1); // Reiniciar a la primera página al buscar
+        setPage(1);
     };
 
-    // Cargar la API key desde un archivo 
     useEffect(() => {
         async function loadConfig() {
             try {
-                // Primero, intenta obtener la API key desde la variable de entorno
                 const apiKeyFromEnv = process.env.API_KEY;
-                
                 if (apiKeyFromEnv) {
                     setApiKey(apiKeyFromEnv);
                 } else {
-                    // Si la variable de entorno no está definida, intenta cargar el archivo
                     const response = await fetch('./config.json');
                     if (!response.ok) {
                         throw new Error('No se encontró el archivo config.json o hubo un error al cargarlo.');
@@ -43,7 +38,7 @@ function App() {
                 }
             } catch (error) {
                 console.error('Error al cargar la API key:', error);
-                setApiKey(null); // O cualquier valor predeterminado que sea apropiado para tu caso de uso
+                setApiKey(null);
             }
         }
         loadConfig();
@@ -58,10 +53,12 @@ function App() {
 
             <main>
                 {/* Sección de Commodities */}
-                <Commodities apiKey={apiKey} />
+                <div className="commodities-section">
+                    <Commodities apiKey={apiKey} />
+                </div>
 
                 {/* Sección de Criptomonedas */}
-                <section className="coins-section">
+                <div className="coins-section">
                     <h2>Precios de Criptomonedas</h2>
                     <input
                         type="text"
@@ -70,34 +67,28 @@ function App() {
                         value={searchTerm}
                     />
                     <h2>{' '}</h2>
-                    {/* Mostrar lista de criptomonedas */}
                     <CryptoList coins={coins} />
-
-                    {/* Navegación por páginas */}
                     <Pagination 
                         page={page} 
                         totalPages={totalPages} 
                         onPageChange={setPage} 
                     />
-
-                    {/* Selector para tamaño de página */}
                     <div>
                         Registros por Página:
                         <select onChange={(e) => {
                             setPageSize(parseInt(e.target.value));
-                            setPage(1); // Reiniciar a la primera página al cambiar el tamaño de página
+                            setPage(1);
                         }}>
                             <option value={10}>10 por página</option>
                             <option value={25}>25 por página</option>
                             <option value={50}>50 por página</option>
                         </select>
                     </div>
-                </section>
+                </div>
             </main>
 
-            {/* Pie de página */}
             <footer>
-                  <p>&copy; 2024 BVC Cryptocurrency Dashboard</p>
+                <p>&copy; 2024 BVC Cryptocurrency Dashboard</p>
             </footer>
         </div>
     );

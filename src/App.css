@@ -23,14 +23,50 @@ h1 {
   color: #333;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-  padding: 15px 0;
+main {
+  margin-top: 20px; /* Espacio superior */
 }
 
+/* Estilo para la sección de commodities */
+.commodities-section {
+  margin-bottom: 20px;
+  padding: 15px; /* Espaciado interno */
+  background-color: #f9f9f9; /* Fondo ligeramente gris para diferenciar */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilo para la sección de criptomonedas */
+.coins-section {
+  margin-bottom: 20px;
+  padding: 15px; /* Espaciado interno */
+  background-color: #f9f9f9; /* Fondo ligeramente gris para diferenciar */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+h2 {
+  color: #333; /* Color del texto del título */
+  margin-bottom: 10px; /* Espacio inferior para el título */
+}
+
+/* Estilo para la lista de commodities y criptomonedas */
+.commodities-list,
+.coins-list {
+  display: flex;
+  flex-direction: column; /* Cambiado a columna para mostrar uno debajo del otro */
+  gap: 10px; /* Espacio entre elementos */
+}
+
+/* Estilo para cada commodity y criptomoneda */
+.commodity,
+.price-section {
+  border: 1px solid olive; /* Borde verde oliva */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 15px; /* Espaciado interno aumentado para mejor presentación */
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para un efecto de elevación */
+}
+
+/* Estilo para el input de búsqueda */
 input[type="text"] {
   width: calc(70% - 10px); /* Ajusta el ancho */
   padding: 8px;
@@ -38,48 +74,55 @@ input[type="text"] {
   border-radius: 4px;
 }
 
-main {
-  margin-top: 20px; /* Espacio superior */
-}
-
-/* Estilo para la sección de commodities */
-.commodities-section,
-.coins-section {
-    margin-bottom: 20px;
-    border: 2px solid olive; /* Borde verde oliva */
-    border-radius: 5px; /* Bordes redondeados */
-    padding: 15px; /* Espaciado interno */
-    background-color: #f9f9f9; /* Fondo ligeramente gris para diferenciar */
-}
-
-h2 {
-    color: #333; /* Color del texto del título */
-    margin-bottom: 10px; /* Espacio inferior para el título */
-}
-
-/* Estilo para la lista de commodities y criptomonedas */
-.commodities-list,
 .coins-list {
-    display: flex;
-    justify-content: space-between; /* Distribuye los elementos horizontalmente */
-    flex-wrap: wrap; /* Permite que los elementos se ajusten a múltiples líneas si es necesario */
-    gap: 10px; /* Espacio entre elementos */
+  display: flex;
+  flex-direction: column; /* Para que cada elemento esté en una nueva línea */
+  gap: 10px; /* Espacio entre filas */
 }
 
-/* Estilo para cada commodity y criptomoneda */
-.commodity,
-.price-section {
-    border: 1px solid olive; /* Borde verde oliva */
-    border-radius: 5px; /* Bordes redondeados */
-    padding: 15px; /* Espaciado interno aumentado para mejor presentación */
-    margin-bottom: 10px; /* Espacio inferior entre elementos */
-    text-align: center;
-    flex-basis: calc(30% - 10px); /* Ajusta el ancho para que sean cuadrados y ocupen hasta tres por fila */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil para un efecto de elevación */
+.coin-item {
+  display: flex; /* Usar flexbox para alinear elementos en fila */
+  justify-content: space-between; /* Espacio entre columnas */
+  align-items: center; /* Alinear verticalmente */
+  padding: 10px; /* Espaciado interno */
+  border: 1px solid olive; /* Borde verde oliva */
+  border-radius: 5px; /* Bordes redondeados */
+  background-color: #f9f9f9; /* Fondo ligeramente gris */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.coin-logo {
+  width: 30px; /* Ajusta el tamaño del logo según sea necesario */
+  height: auto;
+  margin-left: 10px; /* Espacio entre el símbolo y el logo */
+}
+
+.commodities-section {
+  margin-bottom: 20px;
+  padding: 15px; /* Espaciado interno */
+  background-color: #f9f9f9; /* Fondo ligeramente gris para diferenciar */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.commodities-list {
+  display: flex;
+  flex-direction: column; /* Cada commodity-item estará en una nueva línea */
+  gap: 10px; /* Espacio entre elementos */
+}
+
+.commodity-item {
+  display: flex; /* Usar flexbox para alinear elementos en fila */
+  justify-content: space-between; /* Espacio entre columnas */
+  align-items: center; /* Alinear verticalmente */
+  padding: 10px; /* Espaciado interno */
+  border: 1px solid olive; /* Borde verde oliva */
+  border-radius: 5px; /* Bordes redondeados */
+  background-color: #f9f9f9; /* Fondo ligeramente gris */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
 /* Estilos para el footer */
 footer {
-    text-align: center;
-    margin-top: 30px;
+  text-align: center;
+  margin-top: 30px;
 }

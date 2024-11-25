@@ -47,15 +47,17 @@ const Commodities = ({ apiKey }) => {
         <section className="commodities-section">
             <h2>Precios de Commodities</h2>
             <div className="commodities-list">
-                <div className="commodity">
-                    <h3>Oro</h3>
-                    <p>Precio: ${commodities.gold ? parseFloat(commodities.gold).toFixed(2) : "N/A"}</p>
+                <div className="commodity-item">
+                    <span>Oro</span>
+                    <span>AU</span>
+                    <span>${commodities.gold ? parseFloat(commodities.gold).toFixed(2) : "N/A"}</span>
                     <StockChart symbol="AU" apiKey={apiKey} />
                 </div>
 
-                <div className="commodity">
-                    <h3>Petróleo (WTI)</h3>
-                    <p>Precio: ${commodities.oil ? parseFloat(commodities.oil).toFixed(2) : "N/A"}</p>
+                <div className="commodity-item">
+                    <span>Petróleo (WTI)</span>
+                    <span>WTI</span>
+                    <span>${commodities.oil ? parseFloat(commodities.oil).toFixed(2) : "N/A"}</span>
                     <StockChart symbol="WTI" apiKey={apiKey} />
                 </div>
             </div>
