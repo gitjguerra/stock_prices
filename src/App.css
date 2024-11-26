@@ -81,14 +81,26 @@ input[type="text"] {
 }
 
 .coin-item {
-  display: flex; /* Usar flexbox para alinear elementos en fila */
-  justify-content: space-between; /* Espacio entre columnas */
-  align-items: center; /* Alinear verticalmente */
-  padding: 10px; /* Espaciado interno */
-  border: 1px solid olive; /* Borde verde oliva */
-  border-radius: 5px; /* Bordes redondeados */
-  background-color: #f9f9f9; /* Fondo ligeramente gris */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px; /* Padding reducido */
+  border: 1px solid olive;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-basis: 10px; /* Tamaño base para el elemento */
+}
+
+.coin-item span {
+  margin: 0; /* Sin márgenes adicionales */
+}
+
+.coin-item .name {
+  width: 150px; /* Ancho fijo para el nombre */
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  overflow: hidden; /* Oculta el texto que se desborda */
+  text-overflow: ellipsis; /* Muestra "..." al final si hay desbordamiento */
 }
 
 .coin-logo {
@@ -97,12 +109,6 @@ input[type="text"] {
   margin-left: 10px; /* Espacio entre el símbolo y el logo */
 }
 
-.commodities-section {
-  margin-bottom: 20px;
-  padding: 15px; /* Espaciado interno */
-  background-color: #f9f9f9; /* Fondo ligeramente gris para diferenciar */
-  border-radius: 5px; /* Bordes redondeados */
-}
 
 .commodities-list {
   display: flex;
@@ -119,6 +125,97 @@ input[type="text"] {
   border-radius: 5px; /* Bordes redondeados */
   background-color: #f9f9f9; /* Fondo ligeramente gris */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+
+.coin-item:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+/* Contenedor principal */
+.crypto-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Estilo para cada elemento de moneda */
+.crypto-item {
+  flex: 1 0 calc(31% - 10px);
+  max-width: 300px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.crypto-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Logo de la moneda */
+.crypto-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+/* Nombre de la moneda */
+.name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+/* Símbolo de la moneda */
+.symbol {
+  font-weight: bold;
+  margin-right: 5px;
+  color: #666;
+}
+
+/* Precio */
+.price,
+.change {
+  font-size: 16px;
+  color: #4a90e2; /* Color azul para los precios */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
+}
+
+/* Cambio diario */
+.change::after {
+  content: '24h';
+  font-size: 12px;
+  color: #999;
+}
+
+/* Estilos para el nombre de la moneda */
+.crypto-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilos para los precios */
+.crypto-price,
+.change {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Estilo para el símbolo de la moneda */
+.crypto-symbol {
+  font-weight: bold;
+  margin-right: 5px;
 }
 
 /* Estilos para el footer */

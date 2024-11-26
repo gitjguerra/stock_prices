@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import logo from './image/bvcLogoGreen.png'; // Asegúrate de que la ruta sea correcta
-import CryptoPrices from './components/CryptoPrices'; // Asegúrate de que la ruta sea correcta
-import Pagination from './components/Pagination'; // Asegúrate de que la ruta sea correcta
-import CryptoList from './components/CryptoList'; // Asegúrate de que la ruta sea correcta
-import Commodities from './components/Commodities'; // Asegúrate de que la ruta sea correcta
+import logo from './image/bvcLogoGreen.png';
+import CryptoPrices from './components/CryptoPrices';
+import Pagination from './components/Pagination';
+import CryptoList from './components/CryptoList';
+import MarketStackComponent from './components/MarketStackComponent';
 
 function App() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -25,7 +25,7 @@ function App() {
     useEffect(() => {
         async function loadConfig() {
             try {
-                const apiKeyFromEnv = process.env.API_KEY;
+                const apiKeyFromEnv = process.env.REACT_APP_API_KEY;
                 if (apiKeyFromEnv) {
                     setApiKey(apiKeyFromEnv);
                 } else {
@@ -44,6 +44,48 @@ function App() {
         loadConfig();
     }, []);
 
+    // EJEMPLO PARA LOOK AND FEEL
+    const [tickers, setTickers] = useState([
+        { symbol: 'AAPL', name: 'Apple Inc.' },
+        { symbol: 'GOOGL', name: 'Alphabet Inc.' },
+        { symbol: 'MSFT', name: 'Microsoft Corporation' },
+        { symbol: 'AMZN', name: 'Amazon.com, Inc.' },
+        { symbol: 'FB', name: 'Facebook, Inc.' }
+    ]);
+
+    const [data, setData] = useState({
+        AAPL: [
+            { time: '2024-11-25', close: 180.50 },
+            { time: '2024-11-24', close: 179.75 },
+            { time: '2024-11-23', close: 178.50 },
+            // ... (agrega más datos para simular una semana)
+        ],
+        GOOGL: [
+            { time: '2024-11-25', close: 3000.00 },
+            { time: '2024-11-24', close: 2995.50 },
+            { time: '2024-11-23', close: 2985.75 },
+            // ... (agrega más datos para simular una semana)
+        ],
+        MSFT: [
+            { time: '2024-11-25', close: 350.25 },
+            { time: '2024-11-24', close: 349.50 },
+            { time: '2024-11-23', close: 348.75 },
+            // ... (agrega más datos para simular una semana)
+        ],
+        AMZN: [
+            { time: '2024-11-25', close: 3800.00 },
+            { time: '2024-11-24', close: 3795.50 },
+            { time: '2024-11-23', close: 3785.75 },
+            // ... (agrega más datos para simular una semana)
+        ],
+        FB: [
+            { time: '2024-11-25', close: 340.00 },
+            { time: '2024-11-24', close: 339.50 },
+            { time: '2024-11-23', close: 338.75 },
+            // ... (agrega más datos para simular una semana)
+        ]
+    });
+
     return (
         <div className="App">
             <header>
@@ -53,8 +95,9 @@ function App() {
 
             <main>
                 {/* Sección de Commodities */}
+                <h2>Precios de Commodities</h2>
                 <div className="commodities-section">
-                    <Commodities apiKey={apiKey} />
+                    <MarketStackComponent tickers={tickers} data={data} />
                 </div>
 
                 {/* Sección de Criptomonedas */}
